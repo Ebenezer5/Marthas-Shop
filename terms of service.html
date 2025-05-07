@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - Martha's Fashion Boutique</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #7F56D9, #9E77ED);
+      border-radius: 2px;
+    }
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .legal-content h3 {
+      font-weight: 600;
+      color: #7F56D9;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .legal-content ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-purple-700 font-bold text-xl">Martha's Boutique</a>
+        
+        <button class="md:hidden text-gray-600" id="mobileMenuButton">
+          <i class="fas fa-bars text-xl" id="menuIcon"></i>
+        </button>
+
+        <div class="hidden md:flex space-x-6">
+          <a href="index.html" class="text-gray-600 hover:text-purple-700 py-1">Home</a>
+          <a href="about.html" class="text-gray-600 hover:text-purple-700 py-1">About</a>
+          <a href="shop.html" class="text-gray-600 hover:text-purple-700 py-1">Shop</a>
+          <a href="contact.html" class="text-gray-600 hover:text-purple-700 py-1">Contact</a>
+          <div class="relative group">
+            <button class="text-purple-700 font-medium border-b-2 border-purple-700 py-1 flex items-center">
+              Legal <i class="fas fa-chevron-down text-xs ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute hidden group-hover:block bg-white shadow-md rounded mt-1 py-1 w-40">
+              <a href="terms.html" class="block px-4 py-2 text-purple-700 bg-purple-50">Terms</a>
+              <a href="privacy.html" class="block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-700">Privacy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu bg-white md:hidden" id="mobileMenu">
+      <div class="px-4 py-2">
+        <a href="index.html" class="block py-2 text-gray-600 hover:text-purple-700">Home</a>
+        <a href="about.html" class="block py-2 text-gray-600 hover:text-purple-700">About</a>
+        <a href="shop.html" class="block py-2 text-gray-600 hover:text-purple-700">Shop</a>
+        <a href="contact.html" class="block py-2 text-gray-600 hover:text-purple-700">Contact</a>
+        <div class="py-2">
+          <button class="flex items-center text-purple-700 font-medium w-full" id="mobileLegalButton">
+            Legal <i class="fas fa-chevron-down text-xs ml-1 transition-transform duration-200 rotate-180" id="legalChevron"></i>
+          </button>
+          <div class="pl-4" id="mobileLegalMenu">
+            <a href="terms.html" class="block py-2 text-purple-700">Terms</a>
+            <a href="privacy.html" class="block py-2 text-gray-600 hover:text-purple-700">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Terms Content -->
+  <section class="py-12 container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 relative pb-2">
+      Terms of Service
+      <span class="section-title"></span>
+    </h2>
+    
+    <div class="legal-content bg-white p-6 rounded-lg shadow-md animate-fade-in">
+      <p class="text-gray-600 mb-6">Last Updated: January 1, 2025</p>
+      
+      <h3>1. Introduction</h3>
+      <p class="text-gray-600 mb-4">
+        Welcome to Martha's Fashion Boutique. These Terms of Service govern your use of our website and services. 
+        By accessing or using our site, you agree to be bound by these terms.
+      </p>
+      
+      <h3>2. Orders and Payments</h3>
+      <p class="text-gray-600 mb-2">All orders are subject to product availability. We reserve the right to:</p>
+      <ul class="text-gray-600 mb-4">
+        <li>Reject or cancel any order</li>
+        <li>Limit quantities purchased per person/household</li>
+        <li>Change prices and products at any time</li>
+      </ul>
+      
+      <h3>3. Shipping and Returns</h3>
+      <p class="text-gray-600 mb-4">
+        We aim to process and ship orders within 3-5 business days. Returns are accepted within 14 days of delivery, 
+        provided items are unused with original tags attached. See our <a href="#" class="text-purple-600">Return Policy</a> for details.
+      </p>
+      
+      <h3>4. Intellectual Property</h3>
+      <p class="text-gray-600 mb-4">
+        All content on this website (images, text, logos) is the property of Martha's Fashion Boutique and protected by copyright laws.
+      </p>
+      
+      <h3>5. Limitation of Liability</h3>
+      <p class="text-gray-600 mb-4">
+        Martha's Fashion Boutique shall not be liable for any indirect, incidental, or consequential damages arising from 
+        your use of the site or products purchased.
+      </p>
+      
+      <h3>6. Changes to Terms</h3>
+      <p class="text-gray-600">
+        We may modify these terms at any time. Continued use of the site after changes constitutes acceptance of the new terms.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-bold text-lg mb-4">Martha's Boutique</h3>
+          <p class="text-gray-600">Quality fashion items and kitchen accessories for the modern woman.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Shop</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Handbags</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Dresses</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Shoes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="text-gray-600 hover:text-purple-700">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-600 hover:text-purple-700">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="terms.html" class="text-purple-700">Terms</a></li>
+            <li><a href="privacy.html" class="text-gray-600 hover:text-purple-700">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2025 Martha's Boutique. All rights reserved.</p>
+        <p class="mt-2">Designed by Ebenezer Kwame Egyir (More Things)</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuButton = document.querySelector("#mobileMenuButton");
+      const mobileMenu = document.querySelector("#mobileMenu");
+      const menuIcon = document.querySelector("#menuIcon");
+      const mobileLegalButton = document.querySelector("#mobileLegalButton");
+      const mobileLegalMenu = document.querySelector("#mobileLegalMenu");
+      const legalChevron = document.querySelector("#legalChevron");
+
+      // Mobile menu toggle with icon change
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+        if (mobileMenu.classList.contains("open")) {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+
+      // Mobile legal menu toggle (already open for terms page)
+      mobileLegalButton.addEventListener("click", () => {
+        mobileLegalMenu.classList.toggle("hidden");
+        legalChevron.classList.toggle("rotate-180");
+      });
+    });
+  </script>
+</body>
+</html>
