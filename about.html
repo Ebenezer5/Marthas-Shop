@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Martha's E-shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    .animate-slide-down {
+      animation: slideDown 0.3s ease-out forwards;
+    }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #7F56D9, #9E77ED);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-purple-700 font-bold text-xl">Martha's E-shop</a>
+        
+        <button class="md:hidden text-gray-600" id="mobileMenuButton">
+          <i class="fas fa-bars text-xl" id="menuIcon"></i>
+        </button>
+
+        <div class="hidden md:flex space-x-6">
+          <a href="index.html" class="text-gray-600 hover:text-purple-700 py-1">Home</a>
+          <a href="about.html" class="text-purple-700 font-medium border-b-2 border-purple-700 py-1">About</a>
+          <a href="shop.html" class="text-gray-600 hover:text-purple-700 py-1">Shop</a>
+          <a href="contact.html" class="text-gray-600 hover:text-purple-700 py-1">Contact</a>
+          <div class="relative group">
+            <button class="text-gray-600 hover:text-purple-700 py-1 flex items-center">
+              Legal <i class="fas fa-chevron-down text-xs ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute hidden group-hover:block bg-white shadow-md rounded mt-1 py-1 w-40 animate-slide-down">
+              <a href="terms.html" class="block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-700">Terms</a>
+              <a href="privacy.html" class="block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-700">Privacy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu bg-white md:hidden" id="mobileMenu">
+      <div class="px-4 py-2">
+        <a href="index.html" class="block py-2 text-gray-600 hover:text-purple-700">Home</a>
+        <a href="about.html" class="block py-2 text-purple-700 font-medium">About</a>
+        <a href="shop.html" class="block py-2 text-gray-600 hover:text-purple-700">Shop</a>
+        <a href="contact.html" class="block py-2 text-gray-600 hover:text-purple-700">Contact</a>
+        <div class="py-2">
+          <button class="flex items-center text-gray-600 hover:text-purple-700 w-full" id="mobileLegalButton">
+            Legal <i class="fas fa-chevron-down text-xs ml-1 transition-transform duration-200" id="legalChevron"></i>
+          </button>
+          <div class="pl-4 hidden" id="mobileLegalMenu">
+            <a href="terms.html" class="block py-2 text-gray-600 hover:text-purple-700">Terms</a>
+            <a href="privacy.html" class="block py-2 text-gray-600 hover:text-purple-700">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="py-12 container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 relative pb-2">
+      About Martha's Boutique
+      <span class="section-title"></span>
+    </h2>
+    
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gray-600 mb-6">
+        Martha's Boutique is proudly owned and managed by one passionate woman
+        who believes in providing quality, affordability, and trust in every transaction.
+        Our mission is simple: to offer carefully selected products that meet your everyday needs
+        while making shopping convenient and enjoyable.
+      </p>
+      <p class="text-gray-600 mb-8">
+        Whether you're buying for your home, yourself, or someone special, every item in our shop
+        is chosen with care. We also provide fast delivery, responsive support, and genuine customer care.
+        At Martha's Boutique, you're not just a customer — you're family.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="bg-white p-6 rounded-lg shadow-md animate-fade-in">
+        <h3 class="text-xl font-bold text-purple-700 mb-4">Our Mission</h3>
+        <p class="text-gray-600">
+          To provide high-quality fashion and home products at affordable prices while delivering 
+          exceptional customer service and building lasting relationships with our clients.
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md animate-fade-in" style="animation-delay: 0.1s">
+        <h3 class="text-xl font-bold text-purple-700 mb-4">Our Vision</h3>
+        <p class="text-gray-600">
+          To become the most trusted fashion boutique in our region, known for quality products, 
+          fast delivery, and outstanding customer care.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 relative pb-2">
+        Meet Our Team
+        <span class="section-title"></span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fade-in">
+          <div class="w-32 h-32 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center text-purple-600 text-4xl">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 class="text-xl font-bold text-purple-700 mb-2">Martha Asabre</h3>
+          <p class="text-gray-600 italic">Founder & CEO</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fade-in" style="animation-delay: 0.1s">
+          <div class="w-32 h-32 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center text-purple-600 text-4xl">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 class="text-xl font-bold text-purple-700 mb-2">Kwame Egyir</h3>
+          <p class="text-gray-600 italic">Customer Support</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fade-in" style="animation-delay: 0.2s">
+          <div class="w-32 h-32 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center text-purple-600 text-4xl">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 class="text-xl font-bold text-purple-700 mb-2">Deborah Asabre</h3>
+          <p class="text-gray-600 italic">Delivery Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-bold text-lg mb-4">Martha's E-shop</h3>
+          <p class="text-gray-600">Quality fashion items and kitchen accessories for the modern woman.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Shop</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Handbags</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Dresses</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Shoes</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Kitchenware</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="text-gray-600 hover:text-purple-700">About Us</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-purple-700">Our Story</a></li>
+            <li><a href="contact.html" class="text-gray-600 hover:text-purple-700">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="terms.html" class="text-gray-600 hover:text-purple-700">Terms</a></li>
+            <li><a href="privacy.html" class="text-gray-600 hover:text-purple-700">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t mt-8 pt-8 text-center text-gray-500">
+        <p>&copy; 2025 Martha's Boutique. All rights reserved.</p>
+        <p class="mt-2">Designed by Ebenezer Kwame Egyir (More Things)</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuButton = document.querySelector("#mobileMenuButton");
+      const mobileMenu = document.querySelector("#mobileMenu");
+      const menuIcon = document.querySelector("#menuIcon");
+      const mobileLegalButton = document.querySelector("#mobileLegalButton");
+      const mobileLegalMenu = document.querySelector("#mobileLegalMenu");
+      const legalChevron = document.querySelector("#legalChevron");
+
+      // Mobile menu toggle with icon change
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+        if (mobileMenu.classList.contains("open")) {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+
+      // Mobile legal menu toggle with chevron animation
+      mobileLegalButton.addEventListener("click", () => {
+        mobileLegalMenu.classList.toggle("hidden");
+        legalChevron.classList.toggle("rotate-180");
+      });
+    });
+  </script>
+</body>
+</html>
