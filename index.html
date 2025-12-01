@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +13,6 @@
     <meta name="keywords" content="fashion design, tailoring, custom clothing, Ghana fashion, Cape Coast tailor, bespoke clothing, alterations, fashion designer">
     <meta name="author" content="NABA'S CRAFT">
     <meta name="robots" content="index, follow">
-    
-    <!-- Social Media Meta Tags -->
-    <meta property="og:image" content="https://www.nabascraft.com/images/logo-social.jpg">
-    <meta property="og:url" content="https://www.nabascraft.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NABA'S CRAFT - Fashion Design & Tailoring">
-    <meta name="twitter:description" content="Custom fashion design, professional sewing, and style consulting services in Cape Coast, Ghana.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -432,6 +424,7 @@
             border-radius: 10px;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            cursor: zoom-in;
         }
 
         .about-photo:hover {
@@ -640,7 +633,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             display: none;
             align-items: center;
             justify-content: center;
@@ -656,33 +649,92 @@
             max-width: 90%;
             max-height: 90%;
             position: relative;
+            background: var(--dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .modal-content img {
             width: 100%;
             height: auto;
-            max-height: 70vh;
+            max-height: 75vh;
             object-fit: contain;
-            border-radius: 8px;
+            display: block;
         }
 
         .close-modal {
             position: absolute;
-            top: -40px;
-            right: 0;
+            top: 15px;
+            right: 15px;
             color: white;
-            font-size: 40px;
+            font-size: 30px;
             cursor: pointer;
             line-height: 1;
-            background: none;
+            background: rgba(0, 0, 0, 0.7);
             border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            background: rgba(212, 175, 55, 0.8);
+            transform: scale(1.1);
         }
 
         .image-caption {
             color: white;
             text-align: center;
-            margin-top: 10px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
             font-size: 1.1rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+        }
+
+        /* Zoom controls */
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .zoom-btn:hover {
+            background: rgba(212, 175, 55, 0.8);
+            transform: scale(1.1);
         }
 
         /* Animation classes */
@@ -707,6 +759,30 @@
             justify-content: center;
             color: white;
             font-size: 1rem;
+        }
+
+    /* Loading indicator */
+        .loading {
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         /* Mobile Responsiveness */
@@ -790,6 +866,17 @@
                 min-width: auto;
                 margin-bottom: 0.25rem;
             }
+
+            .zoom-controls {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .zoom-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -817,6 +904,24 @@
             .testimonials,
             .contact {
                 padding: 60px 0;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .close-modal {
+                top: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+                font-size: 25px;
+            }
+
+            .image-caption {
+                font-size: 0.9rem;
+                padding: 10px;
             }
         }
     </style>
@@ -1071,6 +1176,11 @@
         <div class="modal-content">
             <button class="close-modal" aria-label="Close image">&times;</button>
             <img id="modalImage" src="" alt="">
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+                <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+                <button class="zoom-btn" id="resetZoom" aria-label="Reset zoom">↺</button>
+            </div>
             <p class="image-caption" id="modalCaption"></p>
         </div>
     </div>
@@ -1186,26 +1296,95 @@
                 observer.observe(el);
             });
 
-            // Image Modal functionality
+            // Image Modal and Zoom functionality
             const imageModal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const closeModal = document.querySelector('.close-modal');
+            const zoomInBtn = document.getElementById('zoomIn');
+            const zoomOutBtn = document.getElementById('zoomOut');
+            const resetZoomBtn = document.getElementById('resetZoom');
 
-            // Add click events to portfolio images
-            const portfolioImages = document.querySelectorAll('.portfolio-image img');
-            portfolioImages.forEach(img => {
-                img.addEventListener('click', function() {
-                    modalImage.src = this.src;
-                    modalImage.alt = this.alt;
-                    modalCaption.textContent = this.alt;
-                    imageModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+            let currentScale = 1;
+            const SCALE_INCREMENT = 0.2;
+            const MIN_SCALE = 0.5;
+            const MAX_SCALE = 3;
+
+            // Add click events to portfolio images and about photo
+            const clickableImages = document.querySelectorAll('.portfolio-image img, .about-photo');
+            clickableImages.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    openImageModal(this.src, this.alt);
                 });
             });
 
+            // Open modal function
+            function openImageModal(src, alt) {
+                modalImage.src = src;
+                modalImage.alt = alt;
+                modalCaption.textContent = alt;
+                
+                // Reset zoom
+                currentScale = 1;
+                modalImage.style.transform = `scale(${currentScale})`;
+                modalImage.style.transformOrigin = 'center center';
+                
+                // Show loading
+                modalImage.classList.add('loading');
+                
+                // Wait for image to load
+                const img = new Image();
+                img.onload = function() {
+                    modalImage.classList.remove('loading');
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                };
+                img.onerror = function() {
+                    modalImage.classList.remove('loading');
+                    modalCaption.textContent = 'Image failed to load';
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                };
+                img.src = src;
+            }
+
             // Close modal
+            function closeImageModal() {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                // Reset zoom for next image
+                currentScale = 1;
+                modalImage.style.transform = `scale(${currentScale})`;
+            }
+
+            // Zoom functions
+            function zoomIn() {
+                if (currentScale < MAX_SCALE) {
+                    currentScale += SCALE_INCREMENT;
+                    modalImage.style.transform = `scale(${currentScale})`;
+                }
+            }
+
+            function zoomOut() {
+                if (currentScale > MIN_SCALE) {
+                    currentScale -= SCALE_INCREMENT;
+                    modalImage.style.transform = `scale(${currentScale})`;
+                }
+            }
+
+            function resetZoom() {
+                currentScale = 1;
+                modalImage.style.transform = `scale(${currentScale})`;
+            }
+
+            // Event listeners
             closeModal.addEventListener('click', closeImageModal);
+            zoomInBtn.addEventListener('click', zoomIn);
+            zoomOutBtn.addEventListener('click', zoomOut);
+            resetZoomBtn.addEventListener('click', resetZoom);
+
+            // Close modal on background click
             imageModal.addEventListener('click', function(e) {
                 if (e.target === imageModal) {
                     closeImageModal();
@@ -1219,10 +1398,42 @@
                 }
             });
 
-            function closeImageModal() {
-                imageModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+            // Zoom with mouse wheel
+            imageModal.addEventListener('wheel', function(e) {
+                if (!imageModal.classList.contains('active')) return;
+                
+                e.preventDefault();
+                
+                if (e.deltaY < 0) {
+                    // Scrolling up - zoom in
+                    zoomIn();
+                } else {
+                    // Scrolling down - zoom out
+                    zoomOut();
+                }
+            }, { passive: false });
+
+            // Double-click to zoom in/out
+            modalImage.addEventListener('dblclick', function(e) {
+                e.preventDefault();
+                
+                // Calculate click position for zoom origin
+                const rect = modalImage.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                
+                if (currentScale === 1) {
+                    // Zoom in on double click
+                    currentScale = 2;
+                    modalImage.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+                } else {
+                    // Reset zoom on double click
+                    currentScale = 1;
+                    modalImage.style.transformOrigin = 'center center';
+                }
+                
+                modalImage.style.transform = `scale(${currentScale})`;
+            });
         });
     </script>
 </body>
