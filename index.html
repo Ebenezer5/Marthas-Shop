@@ -1,4 +1,5 @@
-  <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,21 +9,25 @@
     <meta property="og:title" content="NABA'S CRAFT - Fashion Design & Tailoring">
     <meta property="og:description" content="Custom fashion design, professional sewing, and style consulting services.">
     <meta property="og:type" content="website">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="fashion design, tailoring, custom clothing, Ghana fashion, Cape Coast tailor, bespoke clothing, alterations, fashion designer">
+    <meta name="author" content="NABA'S CRAFT">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:image" content="https://www.nabascraft.com/images/logo-social.jpg">
+    <meta property="og:url" content="https://www.nabascraft.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NABA'S CRAFT - Fashion Design & Tailoring">
+    <meta name="twitter:description" content="Custom fashion design, professional sewing, and style consulting services in Cape Coast, Ghana.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   <!-- Add these in the head section -->
-<meta name="keywords" content="fashion design, tailoring, custom clothing, Ghana fashion, Cape Coast tailor, bespoke clothing, alterations, fashion designer">
-<meta name="author" content="NABA'S CRAFT">
-<link rel="canonical" href="https://www.nabascraft.com">
-
-<!-- For social sharing -->
-<meta property="og:image" content="https://www.nabascraft.com/images/logo-social.jpg">
-<meta property="og:url" content="https://www.nabascraft.com">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NABA'S CRAFT - Fashion Design & Tailoring">
-<meta name="twitter:description" content="Custom fashion design, professional sewing, and style consulting services in Cape Coast, Ghana.">
- <style>
+    
+    <style>
         /* styles.css - Complete styling for NABA'S CRAFT */
         :root {
             --primary: #1a1a1a;
@@ -31,7 +36,7 @@
             --light: #f8f8f8;
             --dark: #2c2c2c;
             --text: #333333;
-            --text-light: #777777; /* FIXED: Removed invalid text */
+            --text-light: #777777;
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
@@ -177,7 +182,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        #1a1a1a; /* Fallback color */
+                        #1a1a1a;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -322,6 +327,7 @@
             font-size: 1.2rem;
             position: relative;
             overflow: hidden;
+            cursor: zoom-in;
         }
 
         .portfolio-image img {
@@ -369,82 +375,6 @@
             background-color: white;
         }
 
-/* Image Modal */
-.image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 20px;
-}
-
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    position: relative;
-}
-
-.modal-content img {
-    width: 100%;
-    height: auto;
-    max-height: 70vh;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.close-modal {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.image-caption {
-    color: white;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1.1rem;
-}
-
-
-/* Loading animation */
-.portfolio-image img,
-.about-photo {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.portfolio-image img.loaded,
-.about-photo.loaded {
-    opacity: 1;
-}
-
-.loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--light);
-    border-top: 3px solid var(--secondary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -703,6 +633,58 @@
             font-size: 0.9rem;
         }
 
+        /* Image Modal */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            line-height: 1;
+            background: none;
+            border: none;
+        }
+
+        .image-caption {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
         /* Animation classes */
         .fade-in {
             opacity: 0;
@@ -862,8 +844,6 @@
         </div>
     </nav>
 
-    
-
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
@@ -975,8 +955,7 @@
         </div>
     </section>
 
-
-  <!-- About Section -->
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -1030,7 +1009,7 @@
         </div>
     </section>
 
-<!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -1038,13 +1017,12 @@
                 <div class="contact-info">
                     <h3>Let's Create Something Beautiful</h3>
                     <p>Ready to start your fashion journey? Reach out to discuss your project.</p>
-                    
-<div class="contact-details">
-    <p><strong>Email:</strong> <a href="mailto:contact@nabascraft.com">contact@nabascraft.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+233530045621">+233 530 045 621</a></p>
-    <p><strong>Hours:</strong> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</p>
-    <p><strong>Location:</strong> Central Region, Cape Coast, Opposite Hans Cottage, Ghana</p>
-</div>
+                    <div class="contact-details">
+                        <p><strong>Email:</strong> <a href="mailto:contact@nabascraft.com">contact@nabascraft.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+233530045621">+233 530 045 621</a></p>
+                        <p><strong>Hours:</strong> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</p>
+                        <p><strong>Location:</strong> Central Region, Cape Coast, Opposite Hans Cottage, Ghana</p>
+                    </div>
                 </div>
                 <form class="contact-form" id="contactForm">
                     <input type="text" name="name" placeholder="Your Name" required data-testid="input-name">
@@ -1088,38 +1066,17 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close image">&times;</button>
+            <img id="modalImage" src="" alt="">
+            <p class="image-caption" id="modalCaption"></p>
+        </div>
+    </div>
 
-  <script>
-        // script.js - Interactive functionality for NABA'S CRAFT
-       
-// Portfolio image click to enlarge
-const portfolioImages = document.querySelectorAll('.portfolio-image img');
-portfolioImages.forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function() {
-        const modal = document.createElement('div');
-        modal.className = 'image-modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <img src="${this.src}" alt="${this.alt}">
-                <p class="image-caption">${this.alt}</p>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        document.body.style.overflow = 'hidden';
-        
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal || e.target.className === 'close-modal') {
-                document.body.removeChild(modal);
-                document.body.style.overflow = 'auto';
-            }
-        });
-    });
-});
-
-
- document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
             // Mobile Navigation Toggle
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
@@ -1228,6 +1185,44 @@ portfolioImages.forEach(img => {
             document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .highlight').forEach(el => {
                 observer.observe(el);
             });
+
+            // Image Modal functionality
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeModal = document.querySelector('.close-modal');
+
+            // Add click events to portfolio images
+            const portfolioImages = document.querySelectorAll('.portfolio-image img');
+            portfolioImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    modalImage.src = this.src;
+                    modalImage.alt = this.alt;
+                    modalCaption.textContent = this.alt;
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal
+            closeModal.addEventListener('click', closeImageModal);
+            imageModal.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    closeImageModal();
+                }
+            });
+
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+                    closeImageModal();
+                }
+            });
+
+            function closeImageModal() {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
